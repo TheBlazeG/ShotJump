@@ -25,7 +25,7 @@ public class BulletGen : MonoBehaviour
 
             Vector2 pos = new Vector2();
             pos.x = Mathf.Sin(a);
-            pos.x=Mathf.Cos(a);
+            pos.y =Mathf.Cos(a);
             result[i] = pos;
         }
         return result;
