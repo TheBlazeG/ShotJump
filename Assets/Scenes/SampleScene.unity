@@ -1939,7 +1939,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2105326614}
   - component: {fileID: 2105326613}
-  - component: {fileID: 2105326615}
   m_Layer: 0
   m_Name: Generator
   m_TagString: Untagged
@@ -1981,20 +1980,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2105326615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2105326612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f60b5113b6b64fd43bb89d8b42a578ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  partitioning: {fileID: 0}
-  size: {x: 0, y: 0}
 --- !u!1001 &1762039521322224665
 PrefabInstance:
   m_ObjectHideFlags: 0

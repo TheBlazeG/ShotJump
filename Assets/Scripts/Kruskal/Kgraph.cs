@@ -68,7 +68,44 @@ public class Kgraph
                 path.Add(edges[i]);
                 continue;
             }
+            if (src.group==dst.group)
+            {
+                continue;
+            }
+            if (dst.group==-1)
+            {
+                int group = src.group;
+                int destination = edge.destination;
+                dst.group = group;
+                vertex[destination] = dst;
+                groups[group].vertex.Add(destination);
+                path.Add(edges[i]);
+                continue;
+            }
+            if (src.group==-1)
+            {
+                int group = dst.group;
+                int source = edge.source;
+                src.group = group;
+                vertex[source] = src;
+                groups[group].vertex.Add(source);
+                path.Add(edges[i]);
+                continue;
+            }
+            Kgroup sg = groups[src.group];
+            Kgroup dg = groups[dst.group];
+            for (int j = 0; j < dg.vertex.Count; j++)
+            {
+                int dgv = dg.vertex[j];
+                Kvertex v = vertex[dgv];
+                v.group = src.group;
+                vertex[dgv] = v;
+                sg.vertex.Add(dgv);
+            }
+            groups[src.group] = sg;
+            path.Add(edges[i]);
         }
         return path.ToArray();
     }
+    //public void Draw(Kedge[] edges,Color color,float duration)
 }

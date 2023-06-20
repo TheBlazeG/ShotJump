@@ -11,6 +11,7 @@ public class TestingScript : MonoBehaviour
     {
         Rectangle canvas = new Rectangle(transform.position, size);
         Node<Rectangle> root = new Node<Rectangle>(canvas, 0);
+        print(partitioning);
         partitioning.Generate(root);
 
         List<Node<Rectangle>> leaves = new();
@@ -19,6 +20,22 @@ public class TestingScript : MonoBehaviour
         for (int i = 0; i < leaves.Count; i++)
         {
             leaves[i].Data.Draw(Color.red, 10);
+        }
+       
+        Vector2[] positions = new Vector2[leaves.Count];
+        for (int i = 0; i < leaves.Count; i++)
+        {
+            positions[i] = leaves[i].Data.Center;
+        }
+        
+        Kgraph graph = new Kgraph(positions);
+        Kedge[] path = graph.Kruskal();
+        
+        for (int i = 0; i < path.Length; i++)
+        {
+            Vector2 src = graph.Vertex[path[i].source].position;
+            Vector2 dst = graph.Vertex[path[i].destination].position;
+            Debug.DrawLine(src, dst, Color.yellow, 10);
         }
         //Rectangle rectangle = new Rectangle(transform.position, new Vector2(5, 7));
         //rectangle.Draw(Color.red, 5);
