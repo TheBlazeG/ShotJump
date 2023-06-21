@@ -37,6 +37,10 @@ public class TestingScript : MonoBehaviour
             Vector2 dst = graph.Vertex[path[i].destination].position;
             Debug.DrawLine(src, dst, Color.yellow, 10);
         }
+
+        Grid<int> grid = new Grid<int>(transform.position, 100, 100, 1, -1);
+        grid.Draw(Color.blue, 10, -1);
+
         //Rectangle rectangle = new Rectangle(transform.position, new Vector2(5, 7));
         //rectangle.Draw(Color.red, 5);
     //    Node<int> Root = new Node<int>(5, 0);

@@ -28,12 +28,13 @@ public class Kgraph
                 edge.source = i;
                 edge.destination = j;
                 edge.weight = Vector2.Distance(vertex[i].position, vertex[j].position);
+                edges.Add(edge);
             }
         }
         edges.Sort(delegate (Kedge x, Kedge y)
         {
             if (x.weight > y.weight) return 1;
-            if (x.weight < y.weight) return 1;
+            if (x.weight < y.weight) return -1;
             return 0;
         });
         
