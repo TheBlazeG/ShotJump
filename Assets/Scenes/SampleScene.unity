@@ -1157,7 +1157,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   partitioning: {fileID: 1337547670}
-  size: {x: 20, y: 40}
+  size: {x: 200, y: 100}
+  margin: 1
 --- !u!1001 &1359962178
 PrefabInstance:
   m_ObjectHideFlags: 0

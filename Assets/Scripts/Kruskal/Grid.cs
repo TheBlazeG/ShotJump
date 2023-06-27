@@ -69,7 +69,9 @@ public class Grid<T>
         return true;
 
     }
-
+    public static float Distance(int x0, int y0, int x1, int y1)
+    { return Mathf.Abs(x1 - x0) + Mathf.Abs(y1 - y0);
+    }
     public void Draw(Color color, float duration, T withValue)
     {
         for (int x = 0; x < Width; x++)
