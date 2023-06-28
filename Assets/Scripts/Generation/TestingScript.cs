@@ -44,25 +44,7 @@ public class TestingScript : MonoBehaviour
 
         Grid<int> grid = new Grid<int>(transform.position, width, height, 1, -1);
         grid.Draw(Color.blue, 10, -1);
-        for (int i = 0; i < leaves.Count; i++)
-        {
-            Rectangle r = leaves[i].Data;
-
-            Vector2 bl = r.Origin;
-            Vector2 tr = r.Origin + r.Size;
-
-            grid.PointToIndex(bl, out int blx, out int bly);
-            grid.PointToIndex(tr, out int trx, out int @try);
-
-            for (int x = blx+margin; x < trx-margin; x++)
-            {
-                for (int y = bly+margin; y < @try-margin; y++)
-                {
-                    grid.SetValue(0, x, y);
-                }
-            }
-        }
-        grid.Draw(Color.green, 10, 0);
+        
 
         for (int i = 0; i < path.Length; i++)
         {
@@ -84,54 +66,74 @@ public class TestingScript : MonoBehaviour
                     sY += dy / Mathf.Abs(dy);
 
                 grid.SetValue(1, sX, sY);
-                distance = Grid<bool>.Distance(sX, sX, dX, dY);
+                distance = Grid<bool>.Distance(sX, sY, dX, dY);
 
             }
         }
         grid.Draw(Color.yellow, 10, 1);
 
+        for (int i = 0; i < leaves.Count; i++)
+        {
+            Rectangle r = leaves[i].Data;
+
+            Vector2 bl = r.Origin;
+            Vector2 tr = r.Origin + r.Size;
+
+            grid.PointToIndex(bl, out int blx, out int bly);
+            grid.PointToIndex(tr, out int trx, out int @try);
+
+            for (int x = blx + margin; x < trx - margin; x++)
+            {
+                for (int y = bly + margin; y < @try - margin; y++)
+                {
+                    grid.SetValue(0, x, y);
+                }
+            }
+        }
+        grid.Draw(Color.green, 10, 0);
+
         //Rectangle rectangle = new Rectangle(transform.position, new Vector2(5, 7));
         //rectangle.Draw(Color.red, 5);
-    //    Node<int> Root = new Node<int>(5, 0);
+        //    Node<int> Root = new Node<int>(5, 0);
 
-    //    Node<int> bl1 = new Node<int>(3, 1);
+        //    Node<int> bl1 = new Node<int>(3, 1);
 
-    //    Node<int> br1 = new Node<int>(8, 1);
+        //    Node<int> br1 = new Node<int>(8, 1);
 
-    //    Node<int> tl1 = new Node<int>(7, 1);
+        //    Node<int> tl1 = new Node<int>(7, 1);
 
-    //    Node<int> tr1 = new Node<int>(14, 1);
+        //    Node<int> tr1 = new Node<int>(14, 1);
 
-    //    Root.Bottomleft = bl1;
-    //    Root.Bottomright = br1;
-    //    Root.Topleft = tl1;
-    //    Root.Topright = tr1;
+        //    Root.Bottomleft = bl1;
+        //    Root.Bottomright = br1;
+        //    Root.Topleft = tl1;
+        //    Root.Topright = tr1;
 
-    //    Node<int> bl2 = new Node<int>(3, 2);
-    //    Node<int> br2 = new Node<int>(2, 2);
-    //    Node<int> tl2 = new Node<int>(27, 2);
-    //    Node<int> tr2 = new Node<int>(4, 2);
+        //    Node<int> bl2 = new Node<int>(3, 2);
+        //    Node<int> br2 = new Node<int>(2, 2);
+        //    Node<int> tl2 = new Node<int>(27, 2);
+        //    Node<int> tr2 = new Node<int>(4, 2);
 
-    //    br1.Bottomleft = bl2;
-    //    br1.Bottomright = br2;
-    //    br1.Topleft = tl2;
-    //    br1.Topright = tr2;
+        //    br1.Bottomleft = bl2;
+        //    br1.Bottomright = br2;
+        //    br1.Topleft = tl2;
+        //    br1.Topright = tr2;
 
-    //    Node<int> bl3 = new Node<int>(6, 3);
-    //    Node<int> br3 = new Node<int>(0, 3);
-    //    Node<int> tl3 = new Node<int>(-5, 3);
-    //    Node<int> tr3 = new Node<int>(8, 3);
-    //    tr2.Bottomleft = bl3;
-    //    tr2.Bottomright = br3;
-    //    tr2.Topleft = tl3;
-    //    tr2.Topright = tr3;
+        //    Node<int> bl3 = new Node<int>(6, 3);
+        //    Node<int> br3 = new Node<int>(0, 3);
+        //    Node<int> tl3 = new Node<int>(-5, 3);
+        //    Node<int> tr3 = new Node<int>(8, 3);
+        //    tr2.Bottomleft = bl3;
+        //    tr2.Bottomright = br3;
+        //    tr2.Topleft = tl3;
+        //    tr2.Topright = tr3;
 
-    //    List<Node<int>> leaves = new List<Node<int>>();
-    //    Root.Leaves(leaves);
+        //    List<Node<int>> leaves = new List<Node<int>>();
+        //    Root.Leaves(leaves);
 
-    //    for (int i = 0; i < leaves.Count; i++)
-    //    {
-    //        print(leaves[i].Data);
-    //    }
-     }
+        //    for (int i = 0; i < leaves.Count; i++)
+        //    {
+        //        print(leaves[i].Data);
+        //    }
+    }
 }
