@@ -5,6 +5,7 @@ using UnityEngine;
 public class TestingScript : MonoBehaviour
 {
     [SerializeField] private Partitioning partitioning;
+    [SerializeField] private Generation generation;
     [SerializeField] private Vector2 size;
     [SerializeField] private int margin;
 
@@ -91,7 +92,7 @@ public class TestingScript : MonoBehaviour
             }
         }
         grid.Draw(Color.green, 10, 0);
-
+        generation.Generate(grid);
         //Rectangle rectangle = new Rectangle(transform.position, new Vector2(5, 7));
         //rectangle.Draw(Color.red, 5);
         //    Node<int> Root = new Node<int>(5, 0);
